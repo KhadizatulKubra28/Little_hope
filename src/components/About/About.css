@@ -1,4 +1,0 @@
-.about-container {
-  display: grid;
-  grid-auto-rows: repeat(8, 1fr);
-}
