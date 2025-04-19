@@ -1,0 +1,13 @@
+node_modules
+/.env
+/.venv
+/__pycache__/
+/.dist
+/db.sqlite3
+/venv
+/.DS_Store
+!package-lock.json
+!package.json
+*.log
+*.sqlite3
+*.cache

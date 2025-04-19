@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../thardSectionC/thardSectionC.css";
 
-const thirdSectionC = () => {
+const thardSectionC = () => {
   const [donations, setDonations] = useState([]);
 
   useEffect(() => {
@@ -42,4 +42,4 @@ const thirdSectionC = () => {
   );
 };
 
-export default thirdSectionC;
+export default thardSectionC;

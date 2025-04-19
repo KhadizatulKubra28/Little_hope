@@ -31,6 +31,7 @@ form {
 
 /* Inputs */
 input {
+  grid-column: 1 / -1;
   background: #f4f6fa;
   width: 100%;
   border: 1px solid transparent;

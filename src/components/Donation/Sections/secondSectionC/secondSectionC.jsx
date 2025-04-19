@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Amounts from "../amounts/amounts.jsx";
 import "../secondSectionC/secondSectionC.css";
 
 const SecondSectionC = () => {
@@ -7,6 +8,30 @@ const SecondSectionC = () => {
     amount: "",
     message: "",
   });
+
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [paymentData, setPaymentData] = useState(null);
+
+  // Load saved values and payment info from localStorage
+  useEffect(() => {
+    const savedName = localStorage.getItem("name");
+    const savedAmount = localStorage.getItem("amount");
+    const savedPayment = localStorage.getItem("paymentSuccess");
+    const savedPaymentData = localStorage.getItem("paymentData");
+
+    if (savedName && savedAmount) {
+      setFormData((prev) => ({
+        ...prev,
+        name: savedName,
+        amount: savedAmount,
+      }));
+    }
+
+    if (savedPayment === "true" && savedPaymentData) {
+      setPaymentSuccess(true);
+      setPaymentData(JSON.parse(savedPaymentData));
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -17,6 +42,11 @@ const SecondSectionC = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!paymentSuccess) {
+      alert("Please complete payment before submitting the form.");
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:8000/api/donations/", {
@@ -31,14 +61,24 @@ const SecondSectionC = () => {
       });
 
       if (response.ok) {
-        alert("Donation submitted successfully!");
+        alert("🎉 Donation submitted successfully!");
+
+        // Clear form and localStorage
         setFormData({
           name: "",
           amount: "",
           message: "",
         });
+
+        setPaymentSuccess(false);
+        setPaymentData(null);
+
+        localStorage.removeItem("name");
+        localStorage.removeItem("amount");
+        localStorage.removeItem("paymentSuccess");
+        localStorage.removeItem("paymentData");
       } else {
-        alert("There was an error.");
+        alert("There was an error submitting the donation.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -48,9 +88,7 @@ const SecondSectionC = () => {
 
   return (
     <div className="contact-third-container">
-      <div className="contact-third-upper-container">
-        {/* Optional heading or message */}
-      </div>
+      <div className="contact-third-upper-container"></div>
       <div className="contact-third-lower-container">
         <div className="form-container">
           <form onSubmit={handleSubmit}>
@@ -61,6 +99,7 @@ const SecondSectionC = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Name"
+              required
             />
             <input
               id="select-field"
@@ -69,16 +108,28 @@ const SecondSectionC = () => {
               value={formData.amount}
               onChange={handleChange}
               placeholder="Amount"
+              required
             />
+
+            {/* Stripe payment trigger */}
+            <Amounts name={formData.name} amount={formData.amount} />
+
             <textarea
               id="message-field"
               name="message"
               value={formData.message}
               onChange={handleChange}
               placeholder="Message"
+              required
             />
-            <button type="submit" id="submit-btn">
-              Donate
+
+            <button
+              type="submit"
+              id="submit-btn"
+              disabled={!paymentSuccess}
+              title={!paymentSuccess ? "Please complete payment first" : ""}
+            >
+              Submit Form
             </button>
           </form>
         </div>

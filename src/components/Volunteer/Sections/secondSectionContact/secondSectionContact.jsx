@@ -40,7 +40,15 @@ const SecondSectionContact = () => {
     }
 
     try {
-      await axios.post("http://127.0.0.1:8000/api/volunteers/", formData);
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/volunteers/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setStatusMessage("Message sent successfully!");
       setFormData({
         name: "",
@@ -112,9 +120,9 @@ const SecondSectionContact = () => {
           >
             <option value="">-- Select a Project to Join --</option>
             <option value="Food Distribution">Food Distribution program</option>
-            <option value="Education for All">Helping Elder program</option>
-            <option value="Healthcare Support">Make A Change program</option>
-            <option value="Fundraising Events">Digital Education Program</option>
+            <option value="Education for All">Digital Education Program</option>
+            <option value="Healthcare Support">Helping Elder program</option>
+            <option value="Fundraising Events">Make A Change program</option>
           </select>
           {errors.project && <p className="error">{errors.project}</p>}
         </div>
