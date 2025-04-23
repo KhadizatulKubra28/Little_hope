@@ -1,0 +1,166 @@
+/* Admin Dashboard Styles */
+.admin-dashboard-container {
+  padding: 30px;
+  background-color: #f4f6fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a0574;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+th {
+  background-color: #1a0574;
+  color: #fff;
+}
+
+td {
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+td:hover {
+  background-color: #f0f4ff; /* Light hover effect */
+}
+
+/* Action Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px; /* Rounded buttons for a more modern look */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 200, 83, 0.2); /* Soft shadow */
+}
+
+.approve-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px); /* Button lift effect */
+  box-shadow: 0 6px 10px rgba(0, 200, 83, 0.3); /* Larger shadow on hover */
+}
+
+.approve-btn:active {
+  transform: translateY(1px); /* Button press effect */
+  box-shadow: 0 3px 5px rgba(0, 200, 83, 0.2); /* Subtle shadow on click */
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+  box-shadow: 0 4px 6px rgba(244, 67, 54, 0.2); /* Soft shadow */
+}
+
+.reject-btn:hover {
+  background-color: #e53935;
+  transform: translateY(-2px); /* Button lift effect */
+  box-shadow: 0 6px 10px rgba(244, 67, 54, 0.3); /* Larger shadow on hover */
+}
+
+.reject-btn:active {
+  transform: translateY(1px); /* Button press effect */
+  box-shadow: 0 3px 5px rgba(244, 67, 54, 0.2); /* Subtle shadow on click */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .admin-dashboard-container {
+    padding: 20px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Mobile Responsive Table */
+@media screen and (max-width: 480px) {
+  .admin-dashboard-container {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}
+.admin-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(244, 67, 54, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e53935;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(244, 67, 54, 0.3);
+}
+
+.logout-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 5px rgba(244, 67, 54, 0.2);
+}

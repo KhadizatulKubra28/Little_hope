@@ -1,0 +1,50 @@
+.logo-container-home {
+    position: fixed;
+    top: 100px;
+    bottom: px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500; /* Lower than navbar */
+    width: 100%;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Keeps the background effect confined */
+  }
+  
+  /* Soft circular background with subtle gradient and blur */
+  .logo-container-home::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.4); /* Light background color */
+    border-radius: 50%;
+    filter: blur(25px);
+    z-index: -1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional soft shadow for subtle depth */
+  }
+  
+  /* Logo style */
+  .logo-image {
+    width: 200px;
+    max-width: 90vw;
+    height: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15)); /* Slight shadow for contrast */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /* Main content styling */
+  .main-content {
+    margin-top: 300px;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  /* Optional smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  

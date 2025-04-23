@@ -1,0 +1,94 @@
+/* Container for the carousel */
+.slider-wrapper {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Individual item styling */
+.item-firstSection {
+  background-color: #f9f9ff;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.item-firstSection:hover {
+  transform: translateY(-4px);
+}
+
+/* Image styling */
+.item-firstSection img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 13px;
+  pointer-events: none;
+}
+
+/* Name link styling */
+.item-firstSection a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212158;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.item-firstSection a:hover {
+  color: #19086d;
+}
+
+/* Description text */
+.item-firstSection p {
+  font-size: 12px;
+  color: #4f555a;
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+
+/* Tablets (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .item-firstSection {
+    padding: 12px;
+  }
+
+  .item-firstSection img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media screen and (max-width: 767px) {
+  .slider-wrapper {
+    padding: 0.5rem;
+  }
+
+  .item-firstSection {
+    margin: 0 6px;
+    padding: 10px;
+  }
+
+  .item-firstSection img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .item-firstSection a {
+    font-size: 16px;
+  }
+
+  .item-firstSection p {
+    font-size: 11px;
+  }
+}
