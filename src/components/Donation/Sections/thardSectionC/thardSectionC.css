@@ -1,0 +1,65 @@
+.donation-history-section {
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 800px; /* Control width for center alignment */
+    text-align: center;
+  }
+  
+  .donation-history-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #1a0574;
+  }
+  
+  .donation-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Ensure child donation items are centered */
+  }
+  
+  .donation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f6fa;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px 30px;
+    width: 100%; /* Match parent max-width */
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .donation-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(26, 5, 116, 0.15);
+  }
+  
+  .donor-name {
+    font-weight: 600;
+    color: #2a2a2a;
+    text-align: left;
+  }
+  
+  .donation-amount {
+    color: #064fc0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+  
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .donation-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 15px 20px;
+    }
+  
+    .donation-amount {
+      align-self: flex-end;
+      margin-top: 5px;
+    }
+  }
